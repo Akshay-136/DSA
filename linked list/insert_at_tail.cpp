@@ -11,7 +11,7 @@ class Node{
     }
 };
  
-void insert_at_tail(Node* tail , int m){
+void insert_at_tail(Node* &tail , int m){
     Node * temp = new Node(m);
     tail -> next = temp ;
     tail = temp;
@@ -32,10 +32,12 @@ int main(){
     
     //tail pointed to node 1 
     Node* tail = node1;
-    print(tail);
+    print(head);
 
     insert_at_tail(tail,13);
-    print(tail);
+    print(head);
+    insert_at_tail(tail,18);
+    print(head);
 
 }
 
