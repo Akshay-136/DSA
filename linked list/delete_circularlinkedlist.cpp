@@ -57,6 +57,11 @@ void deleteNode(Node* &tail, int value){
             curr= curr->next;
         }
         prev->next = curr->next;
+        // 1 node linked list
+        if(tail==prev){
+            tail=NULL;
+        }
+        // >=2 node linked list 
         if(tail==curr){
             tail = prev;
         }
@@ -81,13 +86,13 @@ int main(){
     Node* tail = NULL;
 
     insertNode(tail,5,3);
-    print(tail);
+    // print(tail);
 
-    insertNode(tail,3,5);
-    print(tail);
+    // insertNode(tail,3,5);
+    // print(tail);
 
-    insertNode(tail,5,7);
-    print(tail);
+    // insertNode(tail,5,7);
+    // print(tail);
 
     deleteNode(tail,3);
     print(tail);
