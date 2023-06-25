@@ -1,5 +1,5 @@
 #include<iostream>
-using namespace std;;
+using namespace std;
 class Node{
     public:
     int data ;
@@ -19,3 +19,52 @@ class Node{
     }
 
 };
+void insertNode(Node* &tail , int element , int d){
+    // assuming that the element is present in the list 
+    
+    //empty list
+    if(tail == NULL){
+        Node* newNode = new Node(d);
+        newNode->next=newNode;
+        tail = newNode;
+    }
+    else{
+        // assuming that the element is present in the list 
+
+        Node* curr = tail;
+        while(curr->data != element){
+            curr= curr->next;
+        }
+
+        // elemnt found -> curr is represnting element wala node
+        Node* temp = new Node(d);
+        temp ->next = curr ->next;
+        curr -> next = temp;
+
+    }
+}
+void print (Node* tail){
+    Node* temp = tail;
+    if(tail == NULL) {
+        cout << "List is Empty "<< endl;
+        return ;
+    }
+    do{
+        cout<< tail->data<<" ";
+        tail = tail->next;
+    }while(tail != temp);
+    cout<<endl;
+}
+int main(){
+    Node* tail = NULL;
+
+    insertNode(tail,5,3);
+    print(tail);
+
+    insertNode(tail,3,5);
+    print(tail);
+
+    insertNode(tail,5,7);
+    print(tail);
+
+}
